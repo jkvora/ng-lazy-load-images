@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LibComponent } from './lib.component';
+import { LazyloadimageComponent } from './lazyloadimage.component';
 
-describe('LibComponent', () => {
-  let component: LibComponent;
-  let fixture: ComponentFixture<LibComponent>;
+describe('LazyloadimageComponent', () => {
+  let component: LazyloadimageComponent;
+  let fixture: ComponentFixture<LazyloadimageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LibComponent ]
+      declarations: [ LazyloadimageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LibComponent);
+    fixture = TestBed.createComponent(LazyloadimageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

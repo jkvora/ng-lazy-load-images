@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { LibComponent } from './lib.component';
+import { LazyloadimageComponent } from './lazyloadimage/lazyloadimage.component';
 
 @NgModule({
   imports: [
   ],
-  declarations: [LibComponent],
-  exports: [LibComponent]
+  declarations: [ LazyloadimageComponent],
+  exports: [LazyloadimageComponent]
 })
 export class LibModule { }
