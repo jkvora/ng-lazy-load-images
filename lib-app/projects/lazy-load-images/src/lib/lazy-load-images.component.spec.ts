@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LazyloadimageComponent } from './lazyloadimage.component';
+import { LazyLoadImagesComponent } from './lazy-load-images.component';
 
-describe('LazyloadimageComponent', () => {
-  let component: LazyloadimageComponent;
-  let fixture: ComponentFixture<LazyloadimageComponent>;
+describe('LazyLoadImagesComponent', () => {
+  let component: LazyLoadImagesComponent;
+  let fixture: ComponentFixture<LazyLoadImagesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LazyloadimageComponent ]
+      declarations: [ LazyLoadImagesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LazyloadimageComponent);
+    fixture = TestBed.createComponent(LazyLoadImagesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

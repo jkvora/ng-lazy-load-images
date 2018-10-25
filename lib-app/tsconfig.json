@@ -18,11 +18,11 @@
       "dom"
     ],
     "paths": {
-      "lib": [
-        "dist/lib"
+      "lazy-load-images": [
+        "dist/lazy-load-images"
       ],
-      "lib/*": [
-        "dist/lib/*"
+      "lazy-load-images/*": [
+        "dist/lazy-load-images/*"
       ]
     }
   }

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'lazyloadimg-root',
+  selector: 'lib-demo-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'lazy-load-images';
+  title = 'lib-app';
 }

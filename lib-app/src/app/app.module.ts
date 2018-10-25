@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { LibModule }  from 'lib'
+
 import { AppComponent } from './app.component';
+import { LazyLoadImagesModule } from 'projects/lazy-load-images/src/public_api';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    LibModule
+    LazyLoadImagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

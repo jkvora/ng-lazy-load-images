@@ -3,17 +3,17 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "lazy-load-images": {
+    "lib-app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "lazyloadimg",
+      "prefix": "lib-demo",
       "schematics": {},
       "targets": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/lazy-load-images",
+            "outputPath": "dist/lib-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "lazy-load-images:build"
+            "browserTarget": "lib-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "lazy-load-images:build:production"
+              "browserTarget": "lib-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "lazy-load-images:build"
+            "browserTarget": "lib-app:build"
           }
         },
         "test": {
@@ -95,7 +95,7 @@
         }
       }
     },
-    "lazy-load-images-e2e": {
+    "lib-app-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "targets": {
@@ -103,11 +103,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "lazy-load-images:serve"
+            "devServerTarget": "lib-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "lazy-load-images:serve:production"
+              "devServerTarget": "lib-app:serve:production"
             }
           }
         },
@@ -122,33 +122,33 @@
         }
       }
     },
-    "lib": {
-      "root": "projects/lib",
-      "sourceRoot": "projects/lib/src",
+    "lazy-load-images": {
+      "root": "projects/lazy-load-images",
+      "sourceRoot": "projects/lazy-load-images/src",
       "projectType": "library",
-      "prefix": "ngxlib",
+      "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/lib/tsconfig.lib.json",
-            "project": "projects/lib/ng-package.json"
+            "tsConfig": "projects/lazy-load-images/tsconfig.lib.json",
+            "project": "projects/lazy-load-images/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/lib/src/test.ts",
-            "tsConfig": "projects/lib/tsconfig.spec.json",
-            "karmaConfig": "projects/lib/karma.conf.js"
+            "main": "projects/lazy-load-images/src/test.ts",
+            "tsConfig": "projects/lazy-load-images/tsconfig.spec.json",
+            "karmaConfig": "projects/lazy-load-images/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/lib/tsconfig.lib.json",
-              "projects/lib/tsconfig.spec.json"
+              "projects/lazy-load-images/tsconfig.lib.json",
+              "projects/lazy-load-images/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -158,5 +158,5 @@
       }
     }
   },
-  "defaultProject": "lazy-load-images"
+  "defaultProject": "lib-app"
 }

@@ -6,6 +6,6 @@ export class AppPage {
   }
 
   getParagraphText() {
-    return element(by.css('lazyloadimg-root h1')).getText();
+    return element(by.css('lib-demo-root h1')).getText();
   }
 }
