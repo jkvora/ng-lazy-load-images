@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { LazyLoadImagesComponent } from './lazy-load-images.component';
+import { LazyLoadImageDirective } from './lazy-load-image.directive';
 
 @NgModule({
   imports: [
   ],
-  declarations: [LazyLoadImagesComponent],
-  exports: [LazyLoadImagesComponent]
+  declarations: [LazyLoadImageDirective],
+  exports: [LazyLoadImageDirective]
 })
 export class LazyLoadImagesModule { }

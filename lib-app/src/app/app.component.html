@@ -1,4 +1,10 @@
-<ngx-lazy-load-image >
-    <div>{{name}}</div>
+<div>
+    hello  {{name}}
+</div>
 
-</ngx-lazy-load-image>
+
+
+<div *ngFor="let item of lstImagesUrls">
+    <img [lazyload]="item"  alt="Nature Images"/>
+    <div class="box"></div>
+</div>
