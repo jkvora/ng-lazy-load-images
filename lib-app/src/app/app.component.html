@@ -4,7 +4,8 @@
 
 
 
-<div *ngFor="let item of lstImagesUrls">
-    <img [lazyload]="item"  alt="Nature Images"/>
+<div *ngFor="let item of lstImagesUrls;let i=index">
+    <img [lazyload]="item"  (imageInViewEvent)="inView(i)"
+    (imageInViewLoadedEvent)="imageLoaded(i)" alt="Nature Images"/>
     <div class="box"></div>
 </div>

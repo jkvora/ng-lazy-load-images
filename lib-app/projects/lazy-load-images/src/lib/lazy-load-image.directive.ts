@@ -1,4 +1,6 @@
-import { Directive, ElementRef, Input, OnChanges, SimpleChanges, AfterViewInit, OnInit } from '@angular/core';
+import { Directive, ElementRef, Input, OnChanges, SimpleChanges, AfterViewInit, OnInit, Output, EventEmitter } from '@angular/core';
+
+
 
 @Directive({
     selector: '[lazyload]'
@@ -7,6 +9,8 @@ export class LazyLoadImageDirective implements OnChanges, AfterViewInit, OnInit 
 
 
     @Input("lazyload") lazysrc;
+    @Output() imageInViewEvent=new EventEmitter();
+    @Output() imageInViewLoadedEvent=new EventEmitter();
 
     constructor(private _element: ElementRef) {
         console.log(this.lazysrc);
@@ -19,7 +23,7 @@ export class LazyLoadImageDirective implements OnChanges, AfterViewInit, OnInit 
                 rootMargin: '0px',
                 threshold: 1.0
             }
-            let observer = new IntersectionObserver(this.imageLoaded.bind(this),options);
+            let observer = new IntersectionObserver(this.imageInView.bind(this),options);
             observer.observe(this._element.nativeElement);
         }
     }
@@ -33,16 +37,21 @@ export class LazyLoadImageDirective implements OnChanges, AfterViewInit, OnInit 
 
     }
 
-    imageLoaded(entries,observe) {
+    imageInView(entries,observe) {
 
         entries.forEach(entry => {
             if(entry.isIntersecting){
                 this._element.nativeElement.src=this.lazysrc;
+                this.imageInViewEvent.emit();
+                this._element.nativeElement.onload=this.imageLoaded.bind(this);
             }
         });
-        // if (data[0].isIntersecting) {
-        //     this._element.nativeElement.src = this.lazysrc;
-        // }
-
+        
     }
+
+    imageLoaded(event){
+        this.imageInViewLoadedEvent.emit();
+    }
+
+
 }

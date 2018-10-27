@@ -24,4 +24,12 @@ export class AppComponent implements OnInit {
     }, 2000);
     
   }
+
+  inView(index){
+    console.log("In view:",index);
+  }
+
+  imageLoaded(index){
+    console.log("Image loaded:",index)
+  }
 }
