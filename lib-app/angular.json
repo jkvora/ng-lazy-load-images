@@ -133,6 +133,13 @@
           "options": {
             "tsConfig": "projects/lazy-load-images/tsconfig.lib.json",
             "project": "projects/lazy-load-images/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+            
+              
+             
+            }
           }
         },
         "test": {
