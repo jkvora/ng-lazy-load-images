@@ -1,11 +1,11 @@
 <div>
-    hello  {{name}}
+    hello {{name}}
 </div>
 
 
 
 <div *ngFor="let item of lstImagesUrls;let i=index">
-    <img [lazyload]="item"  (imageInViewEvent)="inView(i)"
-    (imageInViewLoadedEvent)="imageLoaded(i)" alt="Nature Images"/>
-    <div class="box"></div>
+    <img  class="preview" [lazyload]="item.src" (imageInViewEvent)="inView(i)" (imageInViewLoadedEvent)="imageLoaded(i)" alt="Nature Images" />
+
+    <div class="box" *ngIf="!item.loaded"></div>
 </div>

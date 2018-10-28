@@ -1,57 +1,66 @@
-import { Directive, ElementRef, Input, OnChanges, SimpleChanges, AfterViewInit, OnInit, Output, EventEmitter } from '@angular/core';
-
-
+import { Directive, ElementRef, Input, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 
 @Directive({
     selector: '[lazyload]'
 })
-export class LazyLoadImageDirective implements OnChanges, AfterViewInit, OnInit {
+export class LazyLoadImageDirective implements OnInit,OnDestroy {
 
 
+    /**
+     * Get the source of image
+     */
     @Input("lazyload") lazysrc;
-    @Output() imageInViewEvent=new EventEmitter();
-    @Output() imageInViewLoadedEvent=new EventEmitter();
+
+    /**
+     * Event emitter for image in view event
+     */
+    @Output() imageInViewEvent = new EventEmitter();
+
+    /**
+     * Event emitter when image gets loaded
+     */
+    @Output() imageInViewLoadedEvent = new EventEmitter();
 
     constructor(private _element: ElementRef) {
-        console.log(this.lazysrc);
+        
     }
 
     ngOnInit() {
         if ('IntersectionObserver' in window) {
-            let options={
-                root:null,
+            let options = {
+                root: null,
                 rootMargin: '0px',
-                threshold: 1.0
+                threshold: 0.5
             }
-            let observer = new IntersectionObserver(this.imageInView.bind(this),options);
+            let observer = new IntersectionObserver(this.imageInView.bind(this), options);
             observer.observe(this._element.nativeElement);
         }
     }
 
-
-    ngOnChanges(changes: SimpleChanges) {
-        
-    }
-
-    ngAfterViewInit() {
-
-    }
-
-    imageInView(entries,observe) {
+    imageInView(entries, observe) {
 
         entries.forEach(entry => {
-            if(entry.isIntersecting){
-                this._element.nativeElement.src=this.lazysrc;
+            if (entry.isIntersecting) {
+                //Emit in view event
                 this.imageInViewEvent.emit();
-                this._element.nativeElement.onload=this.imageLoaded.bind(this);
+
+                //If source is different add onload event
+                if (this.lazysrc != this._element.nativeElement.src) {
+                    this._element.nativeElement.onload = this.imageLoaded.bind(this);
+                }
+                this._element.nativeElement.src = this.lazysrc;
             }
         });
-        
+
     }
 
-    imageLoaded(event){
+    imageLoaded(event) {
         this.imageInViewLoadedEvent.emit();
+        this._element.nativeElement.onload=null;
     }
 
+    ngOnDestroy(){
+        this._element.nativeElement.onload=null;
+    }
 
 }
