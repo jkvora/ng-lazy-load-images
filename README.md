@@ -84,7 +84,16 @@ class AppComponent {
 
 | Property name | Description |
 | ------------- | ------------------ |
-| imageInViewEvent  | Emitted when image comes in viewport |
-| imageInViewLoadedEvent  | Emitted when image is loaded .( do thinsg like hide placeholder). |
+| imageInViewEvent  | Emitted when image comes in viewport. |
+| imageInViewLoadedEvent  | Emitted when image is loaded .( do things like hide placeholder). |
+
+
+## 👍 Contribute
+
+Show your ❤️ and support by giving a ⭐. Any suggestions and pull request are welcome !
+
+### 📝 License
+
+MIT © [jkvora](https://github.com/jkvora)
 
 
